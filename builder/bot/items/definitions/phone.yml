@@ -1,0 +1,20 @@
+name: phone
+rarity: Common
+price: 100
+image: builder/bot/items/images/phone/normal.svg
+colors:
+  - white:
+    - RGB: !!python/tuple [255, 255, 255]
+    - image: builder/bot/items/images/phone/white.png
+
+  - blue:
+    - RGB: !!python/tuple [55, 135, 255]
+    - image: builder/bot/items/images/phone/blue.png
+
+  - pink:
+    - RGB: !!python/tuple [237, 163, 255]
+    - image: builder/bot/items/images/phone/pink.png
+
+  - green:
+    - RGB: !!python/tuple [97, 176, 18]
+    - image: builder/bot/items/images/phone/green.png

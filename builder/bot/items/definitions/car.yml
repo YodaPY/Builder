@@ -11,6 +11,10 @@ colors:
     - RGB: !!python/tuple [0, 0, 0]
     - image: builder/bot/items/images/car/black.png
 
+  - blue:
+    - RGB: !!python/tuple [55, 135, 255]
+    - image: builder/bot/items/images/phone/blue.png
+
   - pink:
     - RGB: !!python/tuple [237, 163, 255]
     - image: builder/bot/items/images/car/pink.png
