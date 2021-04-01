@@ -1,6 +1,6 @@
 import time
-from builder.bot import BuilderBot, Context, TranslationType
 from lightbulb import Plugin, command
+from builder.bot import BuilderBot, Context, TranslationType
 
 class Bot(Plugin):
     """
@@ -20,7 +20,7 @@ class Bot(Plugin):
         Get the heartbeat and REST API latency of the bot
         """
 
-        translated_msg = ctx.translate_message(
+        translated_msg = await ctx.translate_message(
             TranslationType.Text,
             0
         )
@@ -29,10 +29,10 @@ class Bot(Plugin):
 
         ack = round((time.perf_counter() - start) * 1000)
         heartbeat = round(self.bot.heartbeat_latency * 1000)
-        translated_edited_msg = ctx.translate_message(
+        translated_edited_msg = (await ctx.translate_message(
             TranslationType.Text,
             1
-        ).format(heartbeat, ack)
+        )).format(heartbeat, ack)
 
         await message.edit(translated_edited_msg)
     

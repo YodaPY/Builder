@@ -1,6 +1,6 @@
 import hikari
 from builder.config import *
-from builder.bot import BuilderBot
+from builder.bot import BuilderBot, get_prefix
 from builder.database.client import DBClient
 
 cache_settings = hikari.CacheSettings(
@@ -17,7 +17,7 @@ intents = (
 
 bot_settings = {
     "token": TOKEN,
-    "prefix": "",
+    "prefix": get_prefix,
     "ignore_bots": True,
     "cache_settings": cache_settings,
     "intents": intents

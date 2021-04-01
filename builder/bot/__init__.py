@@ -8,6 +8,7 @@ from builder.database.client import DBClient
 from builder.paths import PLUGINS_PATH, I18N_PATH
 from builder.bot.context import *
 from builder.bot.i18n import *
+from builder.config import DEFAULT_PREFIX
 
 class BuilderBot(Bot):
     __slots__ = ("db", "_start_uptime", "logger")
@@ -63,3 +64,17 @@ class BuilderBot(Bot):
         """
 
         return Context(self, message, prefix, invoked_with, invoked_command)
+
+async def get_prefix(bot: BuilderBot, message: hikari.Message) -> str:
+    if not message.guild_id:
+        return DEFAULT_PREFIX
+
+    prefix = await bot.db.fetchval(
+        """
+        SELECT prefix
+        FROM guild
+        WHERE guild_id = $1
+        """,
+        message.guild_id
+    )
+    return prefix

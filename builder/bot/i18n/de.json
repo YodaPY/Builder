@@ -3,6 +3,27 @@
         "Text": [
             "Pong!",
             "Pong!\nHerzschlag: {}ms\nACK: {}ms"
+        ],
+        "Docs": [
+            "Sehe die herzschlag und REST API Latenz des bots"
+        ]
+    },
+    "prefix": {
+        "Text": [
+            "Der prefix muss 10 oder weniger Zeichen haben.",
+            "Der prefix wurde erfolgreich zu `{}` geändert."
+        ],
+        "Docs": [
+            "Stellen sie den prefix für ihren server ein."
+        ]
+    },
+    "language": {
+        "Text": [
+            "Die Sprache `{}` ist nicht unterstützt.",
+            "Die Sprache wurde erfolgreich zu `{}` geändert."
+        ],
+        "Docs": [
+            "Stellen sie die Sprache für ihren server ein."
         ]
     }
 }

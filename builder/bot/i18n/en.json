@@ -3,6 +3,27 @@
         "Text": [
             "Pong!",
             "Pong!\nHeartbeat: {}ms\nACK: {}ms"
+        ],
+        "Docs": [
+            "Get the heartbeat and REST API latency of the bot"
+        ]
+    },
+    "prefix": {
+        "Text": [
+            "The prefix must have 10 or less characters.",
+            "Successfully changed the prefix to `{}`."
+        ],
+        "Docs": [
+            "Set the prefix for your server"
+        ]
+    },
+    "language": {
+        "Text": [
+            "The language `{}` is not supported.",
+            "Successfully changed the language to `{}`."
+        ],
+        "Docs": [
+            "Set the language for your server"
         ]
     }
 }

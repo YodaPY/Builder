@@ -15,3 +15,4 @@ POSTGRES_PASSWORD: Final[str] = os.environ["POSTGRES_PASSWORD"]
 POSTGRES_USER: Final[str] = os.environ.get("POSTGRES_USER") or "postgres"
 POSTGRES_HOST: Final[str] = os.environ.get("POSTGRES_HOST") or None
 TOKEN: Final[str] = os.environ["TOKEN"]
+DEFAULT_PREFIX: Final[str] = "b!"

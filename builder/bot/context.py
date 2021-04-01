@@ -8,11 +8,28 @@ __all__ = ("TranslationType", "Context")
 class TranslationType(Enum):
     Text = 1
     Embed = 2
+    Docs = 3
 
 class Context(_Context):
     __slots__ = ()
 
-    def translate_message(self, t_type: TranslationType, index: int, /) -> Union[str, hikari.Embed]:
+    async def language(self) -> str:
+        """
+        Get the language set for a server
+        """
+
+        lang = await self.bot.db.fetchval(
+            """
+            SELECT lang
+            FROM guild
+            WHERE guild_id = $1
+            """,
+            self.guild_id
+        )
+
+        return lang
+
+    async def translate_message(self, t_type: TranslationType, index: int, /) -> Union[str, hikari.Embed]:
         """
         Get the translated message for a server
 
@@ -21,11 +38,10 @@ class Context(_Context):
             index (int): The translated message that should be used
         """
 
-        command = ".".join(
-            self.command.qualified_name.split()
-        )
+        command = self.command.qualified_name.replace(" ", ".")
+        lang = await self.language()
 
-        translation = self.bot.translations["en"][command][t_type.name][index]
+        translation = self.bot.translations[lang][command][t_type.name][index]
 
         if isinstance(translation, dict):
             return self.bot.entity_factory.deserialize_embed(translation)
