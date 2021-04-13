@@ -56,7 +56,7 @@ class Bot(Plugin):
         file_path = f"https://github.com/YodaPY/Builder/blob/master{short_file_path}"
 
         lines, lineno = inspect.getsourcelines(callback)
-        line_path = f"L{lineno}-L{lineno + len(lines)}"
+        line_path = f"L{lineno}-L{lineno + len(lines) - 1}"
 
         github_path = file_path + "#" + line_path
 
