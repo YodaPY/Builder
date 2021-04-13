@@ -1,5 +1,0 @@
-CREATE TABLE IF NOT EXISTS guild (
-    guild_id BIGINT NOT NULL PRIMARY KEY,
-    prefix VARCHAR(10) NOT NULL,
-    lang VARCHAR(5) NOT NULL
-)

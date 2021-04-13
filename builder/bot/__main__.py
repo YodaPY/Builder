@@ -1,7 +1,7 @@
 import hikari
-from builder.config import *
+from lightbulb import when_mentioned_or
+from builder.config import TOKEN
 from builder.bot import BuilderBot, get_prefix
-from builder.database.client import DBClient
 
 cache_settings = hikari.CacheSettings(
     invites=False,
@@ -12,25 +12,19 @@ cache_settings = hikari.CacheSettings(
 intents = (
     hikari.Intents.GUILD_MEMBERS    |
     hikari.Intents.GUILDS           |
-    hikari.Intents.GUILD_MESSAGES
+    hikari.Intents.GUILD_MESSAGES   |
+    hikari.Intents.ALL_MESSAGE_REACTIONS
 )
 
 bot_settings = {
     "token": TOKEN,
-    "prefix": get_prefix,
+    "prefix": when_mentioned_or(get_prefix),
     "ignore_bots": True,
     "cache_settings": cache_settings,
     "intents": intents
 }
 
-database = DBClient(
-    database=POSTGRES_DATABASE,
-    password=POSTGRES_PASSWORD,
-    user=POSTGRES_USER,
-    host=POSTGRES_HOST
-)
-
-bot = BuilderBot(database, **bot_settings)
+bot = BuilderBot(**bot_settings)
 bot.run(
     activity=hikari.Activity(
         name="the trading market",

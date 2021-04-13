@@ -2,6 +2,7 @@ import hikari
 from enum import Enum
 from typing import Union
 from lightbulb import Context as _Context
+from builder.bot import Guild
 
 __all__ = ("TranslationType", "Context")
 
@@ -18,16 +19,9 @@ class Context(_Context):
         Get the language set for a server
         """
 
-        lang = await self.bot.db.fetchval(
-            """
-            SELECT lang
-            FROM guild
-            WHERE guild_id = $1
-            """,
-            self.guild_id
-        )
+        record = await Guild.get(guild_id=self.guild_id)
 
-        return lang
+        return record.lang
 
     async def translate_message(self, t_type: TranslationType, index: int, /) -> Union[str, hikari.Embed]:
         """

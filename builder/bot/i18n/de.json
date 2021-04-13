@@ -10,11 +10,13 @@
     },
     "prefix": {
         "Text": [
+            "Der prefix ist `{}`.",
+            "Die Unterscheidung beim prefix zwischen Groß- und Kleinschreibung wurde erfolgreich geändert.",
             "Der prefix muss 10 oder weniger Zeichen haben.",
             "Der prefix wurde erfolgreich zu `{}` geändert."
         ],
         "Docs": [
-            "Stellen sie den prefix für ihren server ein."
+            "Stellen sie den prefix für ihren server ein.\n\nBEACHTE: Alle flags werden in der Reihenfolge wie sie in der Signatur vorkommen analysiert."
         ]
     },
     "language": {
@@ -24,6 +26,18 @@
         ],
         "Docs": [
             "Stellen sie die Sprache für ihren server ein."
+        ]
+    },
+    "math": {
+        "Text": [],
+        "Docs": [
+            "Löse deine Gleichung"
+        ]
+    },
+    "source": {
+        "Text": [],
+        "Docs": [
+            "Sehe den Quellencode für einen Befehl"
         ]
     }
 }

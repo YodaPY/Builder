@@ -10,11 +10,13 @@
     },
     "prefix": {
         "Text": [
-            "The prefix must have 10 or less characters.",
+            "The prefix set is `{}`.",
+            "Successfully set the case-sensitivity of the prefix to `{}`.",
+            "The prefix must have 10 characters or less.",
             "Successfully changed the prefix to `{}`."
         ],
         "Docs": [
-            "Set the prefix for your server"
+            "Set the prefix for your server\n\nNOTE: All given flags are parsed in the order they appear in the signature."
         ]
     },
     "language": {
@@ -24,6 +26,18 @@
         ],
         "Docs": [
             "Set the language for your server"
+        ]
+    },
+    "math": {
+        "Text": [],
+        "Docs": [
+            "Calculate your equation"
+        ]
+    },
+    "source": {
+        "Text": [],
+        "Docs": [
+            "View the source for a command"
         ]
     }
 }
